@@ -1,7 +1,7 @@
 // fs will allow us to access operations for files
 const fs = require('fs');
-const encoding = 'utf-8';
 
+const encoding = 'utf-8';
 //* Realizar una clase de nombre “ProductManager”, el cual permitirá trabajar con múltiples productos. La clase debe contar con una variable this.path, el cual se inicializará desde el constructor y debe recibir la ruta a trabajar desde el momento de generar su instancia.
 class ProductManager {
   constructor(path) {
@@ -161,57 +161,30 @@ class ProductManager {
 // Exportación para utilizar en el app.js
 module.exports = ProductManager;
 
-//! Detalle del proceso de testing!
-// Create an async test function because ProductManager class works with promises
-const test = async () => {
-  console.log('\nSe creará una instancia de la clase “ProductManager”, lo que creará automáticamente un archivo json con el nombre especificado en la ruta especificada.')
-  const manager = new ProductManager('./productManager.json');
 
-  console.log('\nSe llamará “getProducts” recién creada la instancia, debe devolver un arreglo vacío.')
-  await manager.getProducts()
 
-  console.log('\nSe llamará al método “addProduct” con campos incompletos para forzar un error: {price:200, thumbnail:”Sin imagen”, code:”abc123”, stock:25}')
-  await manager.addProduct(200, 'Sin imagen', 'abc123', 25);
-
-  console.log('\nSe llamará al método “addProduct” con los campos correctos => El objeto debe agregarse satisfactoriamente con un id generado automáticamente SIN REPETIRSE.')
-  await manager.addProduct('producto prueba', 'Este es un producto de prueba', 200, 'Sin imagen', 'abc123', 25);
-
-  console.log('\nSe llamará al método “addProduct” con el code repetido para forzar error.')
-  await manager.addProduct('producto prueba', 'Este es un producto de prueba', 200, 'Sin imagen', 'abc123', 25);
-
-  console.log('\nSe llamará al método “addProduct” con campos correctos nuevamente para chequear el funcionamiento de asignación de id incrementales => El objeto debe agregarse satisfactoriamente con un id generado automáticamente SIN REPETIRSE.')
-  await manager.addProduct('producto prueba2', 'Este es un producto de prueba2', 200, 'Sin imagen', 'abc124', 25);
-
-  console.log('\nSe llamará el método “getProducts” nuevamente, esta vez debe aparecer el producto recién agregado.')
-  await manager.getProducts()
-
-  console.log('\nSe llamará al método “getProductById” con un id incorrecto para forzar un error.')
-  await manager.getProductById(4)
-
-  console.log('\nSe llamará al método “getProductById” con un id válido, lo cual debe retornar el producto correcto.')
-  await manager.getProductById(1)
-
-  console.log('\nSe llamará al método “updateProduct” y se intentará cambiar un campo incorrecto de algún producto para forzar un error.')
-  await manager.updateProduct(3, { invalidFieldTest: 'Título del producto actualizado' })
-
-  console.log('\nSe llamará al método “updateProduct” y se intentará cambiar un campo correcto de algún producto con id incorrecto para forzar un error.')
-  await manager.updateProduct(3, { title: 'Título del producto actualizado' })
-
-  console.log('\nSe llamará al método “updateProduct” y se intentará cambiar un campo correcto de algún producto con id correcto. Se evaluará que no se elimine el id y que sí se haya hecho la actualización.')
-  await manager.updateProduct(1, { title: 'Título del producto actualizado' })
-
-  console.log('\nSe llamará “getProducts” nuevamente, para chequear que el title del producto haya sido actualizado.')
-  await manager.getProducts()
-
-  console.log('\nSe llamará al método “deleteProduct” con un id incorrecto para forzar un error.')
-  await manager.deleteProduct(5)
-
-  console.log('\nSe llamará al método “deleteProduct” con un id correcto. Se evaluará que realmente se elimine el producto.')
-  await manager.deleteProduct(1)
-
-  console.log('\nSe llamará “getProducts” nuevamente, para chequear que el producto haya sido eliminado. Debe devolver el arreglo con 1 solo producto.')
-  await manager.getProducts()
+async function test() {
+  const manager = new ProductManager('./src/products.json');
+  await manager.addProduct('Test Product 1', 'This is a test product', 200, 'Without Image', 'abc123', 25);
+  await manager.addProduct('Test Product 2', 'This is a test product', 200, 'Without Image', 'abc124', 25);
+  await manager.addProduct('Test Product 3', 'This is a test product', 200, 'Without Image', 'abc125', 25);
+  await manager.addProduct('Test Product 4', 'This is a test product', 200, 'Without Image', 'abc126', 25);
+  await manager.addProduct('Test Product 5', 'This is a test product', 200, 'Without Image', 'abc127', 25);
+  await manager.addProduct('Test Product 6', 'This is a test product', 200, 'Without Image', 'abc128', 25);
+  await manager.addProduct('Test Product 7', 'This is a test product', 200, 'Without Image', 'abc129', 25);
+  await manager.addProduct('Test Product 8', 'This is a test product', 200, 'Without Image', 'abc130', 25);
+  await manager.addProduct('Test Product 9', 'This is a test product', 200, 'Without Image', 'abc131', 25);
+  await manager.addProduct('Test Product 10', 'This is a test product', 200, 'Without Image', 'abc132', 25);
+  await manager.addProduct('Test Product 11', 'This is a test product', 200, 'Without Image', 'abc133', 25);
+  await manager.addProduct('Test Product 12', 'This is a test product', 200, 'Without Image', 'abc134', 25);
+  await manager.addProduct('Test Product 13', 'This is a test product', 200, 'Without Image', 'abc135', 25);
+  await manager.addProduct('Test Product 14', 'This is a test product', 200, 'Without Image', 'abc136', 25);
+  await manager.addProduct('Test Product 15', 'This is a test product', 200, 'Without Image', 'abc137', 25);
+  await manager.addProduct('Test Product 16', 'This is a test product', 200, 'Without Image', 'abc138', 25);
+  await manager.addProduct('Test Product 17', 'This is a test product', 200, 'Without Image', 'abc139', 25);
+  await manager.addProduct('Test Product 18', 'This is a test product', 200, 'Without Image', 'abc140', 25);
+  await manager.addProduct('Test Product 19', 'This is a test product', 200, 'Without Image', 'abc141', 25);
+  await manager.addProduct('Test Product 20', 'This is a test product', 200, 'Without Image', 'abc142', 25);
 }
 
-//! Uncomment next line to execute test function
 //test()
