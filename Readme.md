@@ -17,7 +17,7 @@
   
   - Run the server:
     ```
-    nodemon app
+    npm start
     ```
 
   - In your browser, open the url:
