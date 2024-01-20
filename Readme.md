@@ -30,7 +30,7 @@
     ```
 
 
-## Test Enpoints
+## Test Endpoints
 
 - Consult all products in the json file, with the endpoint:
   
