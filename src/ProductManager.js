@@ -188,3 +188,14 @@ async function test() {
 }
 
 //test()
+
+
+async function test2() {
+  const manager = new ProductManager('./src/products.json');
+  let products = await manager.getProducts();
+  let limit = 5;
+  let filteredProduct = products.slice(0, limit);
+  console.log(filteredProduct)
+}
+
+//test2()

@@ -1,30 +1,42 @@
-# Product Nanager Project with Express
+# Product Manager Project with Express
 
 
 ## Get Started!
 
-  - Run the command in terminal:
+  - Clone the repository:
     ```
     git clone https://github.com/escuderoemanuel/NodeExpressProductManager.git
     ```
 
   - Open project folder with VSCode or your preferred editor
   
-  - Run the command in terminal:
+  - Install dependencies:
     ```
     npm install
     ```
   
-  - To run the server, run the command:
+  - Run the server:
     ```
     nodemon app
     ```
 
-  - Open in your browser
+  - In your browser, open the url:
     ```
     http://localhost:8080
     ```
 
 
 ## Test Enpoints
+
+- Consult all products in the json file, with the endpoint:
+  
+  (http://localhost:8080/products)
+
+- Consult a limited list of products in the json file, with a limit parameter :
+  
+  (http://localhost:8080/products?limit=3)
+
+- Consult a product in the json file, with a pid parameter:
+  
+  (http://localhost:8080/products/5)
 
