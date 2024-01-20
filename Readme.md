@@ -1,7 +1,9 @@
 # Express Server in Product Manager Project
 
 
+
 ## Get Started!
+
 
   - Clone the repository:
     ```
@@ -30,7 +32,9 @@
     ```
 
 
-## Test Endpoints
+
+## Endpoint Testing
+
 
 - Consult all products in the json file, with the endpoint:
   
