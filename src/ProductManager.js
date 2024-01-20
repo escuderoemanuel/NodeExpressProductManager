@@ -21,11 +21,11 @@ class ProductManager {
       // Read the file, parse the data and save the data in the object.
       const data = await fs.promises.readFile(this.path, encoding)
       this.products = await JSON.parse(data)
-      console.log('All products found:\n', this.products)
+      //console.log('All products found:\n', this.products)
       return this.products;
 
     } catch (error) {
-      console.error(`Error: ${error.message}`)
+      //console.error(`Error: ${error.message}`)
     }
   }
 
@@ -65,10 +65,10 @@ class ProductManager {
 
         // Save the updated data in the file.
         await fs.promises.writeFile(this.path, JSON.stringify(parsedData, null, 2), encoding);
-        console.log('Product added successfully!');
+        //console.log('Product added successfully!');
       }
     } catch (error) {
-      console.error(`Error: ${error.message}`);
+      //console.error(`Error: ${error.message}`);
     }
   }
 
@@ -83,13 +83,13 @@ class ProductManager {
       const product = parsedData.find(product => product.id === id);
 
       if (product) {
-        console.log(`Product with id:${id} found:\n`, product);
+        //console.log(`Product with id:${id} found:\n`, product);
         return product;
       } else {
-        console.log(`Product with id:${id} not found.`);
+        //console.log(`Product with id:${id} not found.`);
       }
     } catch (error) {
-      console.error(`Error: ${error.message}`);
+      //console.error(`Error: ${error.message}`);
     }
   }
 
@@ -122,13 +122,13 @@ class ProductManager {
 
         // After to update the field => transform the object in json string
         await fs.promises.writeFile(this.path, JSON.stringify(parsedData, null, 2), encoding);
-        console.log(`The product with 'id:${id}' has been modified successfully!`)
+        //console.log(`The product with 'id:${id}' has been modified successfully!`)
 
       } else {
         throw new Error(`Product with id${id} not found.`)
       }
     } catch (error) {
-      console.error(`Error: ${error.message}`);
+      //console.error(`Error: ${error.message}`);
     }
   }
 
@@ -148,12 +148,12 @@ class ProductManager {
         parsedData.splice(productIndex, 1);
         // After to delete the product => transform the object in json string.
         await fs.promises.writeFile(this.path, JSON.stringify(parsedData, null, 2), encoding);
-        console.log(`The product with id:${id} has been deleted successfully!`)
+        //console.log(`The product with id:${id} has been deleted successfully!`)
       } else {
         throw new Error(`Product to delete with id:${id} not found!`)
       }
     } catch (error) {
-      console.error(`Error: ${error.message}`);
+      //console.error(`Error: ${error.message}`);
     }
   }
 }
@@ -163,7 +163,7 @@ module.exports = ProductManager;
 
 
 
-async function test() {
+async function uploadProducts() {
   const manager = new ProductManager('./src/products.json');
   await manager.addProduct('Test Product 1', 'This is a test product', 200, 'Without Image', 'abc123', 25);
   await manager.addProduct('Test Product 2', 'This is a test product', 200, 'Without Image', 'abc124', 25);
@@ -175,27 +175,7 @@ async function test() {
   await manager.addProduct('Test Product 8', 'This is a test product', 200, 'Without Image', 'abc130', 25);
   await manager.addProduct('Test Product 9', 'This is a test product', 200, 'Without Image', 'abc131', 25);
   await manager.addProduct('Test Product 10', 'This is a test product', 200, 'Without Image', 'abc132', 25);
-  await manager.addProduct('Test Product 11', 'This is a test product', 200, 'Without Image', 'abc133', 25);
-  await manager.addProduct('Test Product 12', 'This is a test product', 200, 'Without Image', 'abc134', 25);
-  await manager.addProduct('Test Product 13', 'This is a test product', 200, 'Without Image', 'abc135', 25);
-  await manager.addProduct('Test Product 14', 'This is a test product', 200, 'Without Image', 'abc136', 25);
-  await manager.addProduct('Test Product 15', 'This is a test product', 200, 'Without Image', 'abc137', 25);
-  await manager.addProduct('Test Product 16', 'This is a test product', 200, 'Without Image', 'abc138', 25);
-  await manager.addProduct('Test Product 17', 'This is a test product', 200, 'Without Image', 'abc139', 25);
-  await manager.addProduct('Test Product 18', 'This is a test product', 200, 'Without Image', 'abc140', 25);
-  await manager.addProduct('Test Product 19', 'This is a test product', 200, 'Without Image', 'abc141', 25);
-  await manager.addProduct('Test Product 20', 'This is a test product', 200, 'Without Image', 'abc142', 25);
+
 }
 
-//test()
-
-
-async function test2() {
-  const manager = new ProductManager('./src/products.json');
-  let products = await manager.getProducts();
-  let limit = 5;
-  let filteredProduct = products.slice(0, limit);
-  console.log(filteredProduct)
-}
-
-//test2()
+//uploadProducts()
