@@ -49,7 +49,7 @@ class ProductManager {
       if (parsedData.find(prod => prod.code === code)) {
         throw new Error('The product code already exists.');
       } else {
-        // If the product code does not exist, decleare the id variable, check the number of existing ids and add 1 to the last one and assign it to the new product
+        // If the product code does not exist, declare the id variable, check the number of existing ids and add 1 to the last one and assign it to the new product
         const id = parsedData.length > 0 ? parsedData[parsedData.length - 1].id + 1 : 1;
         const product = {
           id,
@@ -65,10 +65,10 @@ class ProductManager {
 
         // Save the updated data in the file.
         await fs.promises.writeFile(this.path, JSON.stringify(parsedData, null, 2), encoding);
-        //console.log('Product added successfully!');
+        console.info('Product added successfully!')
       }
     } catch (error) {
-      //console.error(`Error: ${error.message}`);
+      console.error(`Error: ${error.message}`);
     }
   }
 
